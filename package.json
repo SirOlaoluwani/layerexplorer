@@ -8,6 +8,9 @@
   },
   "author": "OmniLayer Team",
   "license": "MIT",
+  "engines": {
+    "node": "12.10.0"
+  },
   "scripts": {
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
