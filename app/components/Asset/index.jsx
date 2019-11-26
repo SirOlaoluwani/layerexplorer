@@ -29,7 +29,7 @@ function Asset(props) {
   return (
     <tr>
       <StyledTD style={{ width: '56px' }}>
-        <AssetLink asset={asset.id} state={props.state} >
+        <AssetLink asset={asset.id} state={props.state}>
           <AssetLogo
             asset={asset}
             prop={asset.id}
@@ -41,11 +41,12 @@ function Asset(props) {
         </AssetLink>
       </StyledTD>
       <StyledTDTextLeft>
-        <AssetLink asset={asset.id} state={props.state} >
+        <AssetLink asset={asset.id} state={props.state}>
           #{props[0]}
-        </AssetLink></StyledTDTextLeft>
+        </AssetLink>
+      </StyledTDTextLeft>
       <StyledTDTextLeft>
-        <AssetLink asset={asset.id} state={props.state} >
+        <AssetLink asset={asset.id} state={props.state}>
           {`${asset.name.substring(0, 20)}${
             asset.name.length > 20 ? '...' : ''
           }`}

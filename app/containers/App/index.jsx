@@ -75,25 +75,15 @@ class App extends React.Component {
             name="description"
             content="The block explorer for Omni Token, Tether, USDT, MaidSafe and Omni Layer Tokens / Cryptocurrencies"
           />
-          <link rel="canonical" href="https://omniexplorer.info"/>
-          <meta name="referrer" content="always"/>
+          <link rel="canonical" href="https://omniexplorer.info" />
+          <meta name="referrer" content="always" />
         </Helmet>
-        <Header/>
+        <Header />
         <ErrorBoundary>
           <Switch>
-            <Route
-              exact
-              path="/:block(\d+)?"
-              component={HomePage}
-            />
-            <Route
-              path="/tx/:tx"
-              component={TransactionDetail}
-            />
-            <Route
-              path="/transactions/unconfirmed"
-              component={Transactions}
-            />
+            <Route exact path="/:block(\d+)?" component={HomePage} />
+            <Route path="/tx/:tx" component={TransactionDetail} />
+            <Route path="/transactions/unconfirmed" component={Transactions} />
             <Route
               path="/address/:address/:page(\d+)?"
               component={AddressDetail}
@@ -114,49 +104,26 @@ class App extends React.Component {
               component={AssetDetail}
               key={location.pathname}
             />
-            <Route exact path="/crowdsales/:ecosystem" component={Crowdsales}/>
-            <Route
-              path="/crowdsale/:crowdsaleid(\d+)"
-              component={CrowdsaleDetail}
-              key={location.pathname}
-            />
             <Route
               exact
               path="/block/:block(\d+)"
               component={BlockDetail}
               key={location.pathname}
             />
-            <Route
-              exact
-              path="/promote"
-              component={Promote}
-            />
-            <Route
-              exact
-              path="/submitfeedback"
-              component={Feedback}
-            />
-            <Route
-              exact
-              path="/history"
-              component={HistoryChart}
-            />
+            <Route exact path="/submitfeedback" component={Feedback} />
+            <Route exact path="/history" component={HistoryChart} />
             <Route
               exact
               path="/blocks/:block(\d+)?"
               component={FullBlockList}
             />
-            <Route
-              exact
-              path="/activations"
-              component={Activations}
-            />
-            <Route path="" component={NotFoundPage}/>
-            <Route component={NotFoundPage}/>
+            <Route exact path="/activations" component={Activations} />
+            <Route path="" component={NotFoundPage} />
+            <Route component={NotFoundPage} />
           </Switch>
         </ErrorBoundary>
-        <Footer/>
-        {isDev ? <DevTools/> : <div/>}
+        <Footer />
+        {isDev ? <DevTools /> : <div />}
       </AppWrapper>
     );
   }

@@ -16,22 +16,24 @@ import { Col, Container, Row, Table } from 'reactstrap';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
-import Asset from 'components/Asset';
+import AssetLogo from 'components/AssetLogo';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import ContainerBase from 'components/ContainerBase';
 import ListHeader from 'components/ListHeader';
 
-import makeSelectSearch from 'containers/Search/selectors';
-import searchReducer from 'containers/Search/reducer';
-import searchSaga from 'containers/Search/saga';
-import { loadSearch } from 'containers/Search/actions';
+import makeSelectProperty from './selectors';
 import {
   ECOSYSTEM_PROD,
   ECOSYSTEM_TEST,
   ECOSYSTEM_TEST_NAME,
   ECOSYSTEM_PROD_NAME,
 } from 'containers/App/constants';
+
 import messages from './messages';
+import propertiesSaga from './saga';
+import { loadProperties } from './actions';
+import propertiesReducer from './reducer';
 
 const StyledContainer = styled(ContainerBase)`
   margin-top: 1rem;
@@ -39,6 +41,14 @@ const StyledContainer = styled(ContainerBase)`
 const StyledTH = styled.th`
   border: none !important;
 `;
+
+const StyledTD = styled.td.attrs({
+  className: 'align-middle',
+})``;
+
+const StyledTDTextLeft = styled(StyledTD).attrs({
+  className: 'text-left pt-3 text-truncate',
+})``;
 
 export class Properties extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
@@ -51,11 +61,12 @@ export class Properties extends React.PureComponent {
         : ECOSYSTEM_TEST;
     this.ecosystem =
       this.query === ECOSYSTEM_PROD ? ECOSYSTEM_PROD_NAME : ECOSYSTEM_TEST_NAME;
-    this.props.loadSearch(this.query);
+    this.props.loadProperties();
   }
 
   render() {
-    if (this.props.search.loading) {
+    console.log(this.props.properties.properties);
+    if (this.props.properties.loading) {
       return (
         <Container>
           <LoadingIndicator />
@@ -70,16 +81,33 @@ export class Properties extends React.PureComponent {
             <StyledTH />
             <StyledTH>Property ID</StyledTH>
             <StyledTH>Name</StyledTH>
-            <StyledTH>Issuer</StyledTH>
+            {/* <StyledTH>Issuer</StyledTH> */}
           </tr>
         </thead>
         <tbody>
-          {this.props.search.asset.map((x, idx) => (
-            <Asset
-              {...x}
-              changeRoute={this.props.changeRoute}
-              key={x[2] + idx}
-            />
+          {this.props.properties.properties.map(property => (
+            <tr>
+              <StyledTD style={{ width: '56px' }}>
+                <AssetLogo
+                  asset={property}
+                  prop={property.propertyid}
+                  style={{
+                    width: '4rem',
+                    height: '4rem',
+                  }}
+                />
+              </StyledTD>
+              <StyledTDTextLeft>
+                <p>#{property.propertyid}</p>
+              </StyledTDTextLeft>
+              <StyledTDTextLeft>
+                <p>
+                  {`${property.name.substring(0, 20)}${
+                    property.name.length > 20 ? '...' : ''
+                  }`}
+                </p>
+              </StyledTDTextLeft>
+            </tr>
           ))}
         </tbody>
       </Table>
@@ -90,7 +118,7 @@ export class Properties extends React.PureComponent {
         <Row>
           <Col sm>
             <ListHeader
-              total={this.props.search.asset.length}
+              total={this.props.properties.length}
               totalLabel="Property"
               message={messages.header}
               values={{
@@ -110,19 +138,19 @@ export class Properties extends React.PureComponent {
 Properties.propTypes = {
   dispatch: PropTypes.func.isRequired,
   changeRoute: PropTypes.func.isRequired,
-  loadSearch: PropTypes.func,
-  search: PropTypes.any,
+  loadProperties: PropTypes.func,
+  properties: PropTypes.any,
   match: PropTypes.any,
 };
 
 const mapStateToProps = createStructuredSelector({
-  search: makeSelectSearch(),
+  properties: makeSelectProperty(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    loadSearch: query => dispatch(loadSearch(query)),
+    loadProperties: () => dispatch(loadProperties()),
     changeRoute: url => dispatch(routeActions.push(url)),
   };
 }
@@ -133,12 +161,13 @@ const withConnect = connect(
 );
 
 const withReducer = injectReducer({
-  key: 'search',
-  reducer: searchReducer,
+  key: 'properties',
+  reducer: propertiesReducer,
 });
+
 const withSaga = injectSaga({
-  key: 'search',
-  saga: searchSaga,
+  key: 'properties',
+  saga: propertiesSaga,
 });
 
 export default compose(

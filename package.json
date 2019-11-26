@@ -1,14 +1,10 @@
 {
-  "name": "omniexplorer",
+  "name": "layer-explorer",
   "version": "3.5.0",
   "description": "Omni Explorer is a Block Explorer and Analytics Platform for the Omni Layer",
   "repository": {
     "type": "git",
     "url": "https://github.com/omniLayer/omniexplorer.git"
-  },
-  "engines": {
-    "npm": ">=3",
-    "node": ">=5"
   },
   "author": "OmniLayer Team",
   "license": "MIT",
