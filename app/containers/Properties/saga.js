@@ -6,7 +6,7 @@ import { LOAD_PROPERTIES } from './constants';
 import { propertiesLoaded } from './actions';
 
 export function* getProperties() {
-  const requestURL = `${LAYER_EXP_API_URL_BASE}/properties`;
+  const requestURL = `${LAYER_EXP_API_URL_BASE}/properties/listProperties`;
 
   const options = {
     method: 'GET',
@@ -16,8 +16,6 @@ export function* getProperties() {
   };
 
   const properties = yield call(request, requestURL, options);
-  console.log(properties);
-
   yield put(propertiesLoaded(properties));
 }
 

@@ -16,7 +16,10 @@ import { Col, Container, Row, Table } from 'reactstrap';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
+import Asset from 'components/Asset';
+
 import AssetLogo from 'components/AssetLogo';
+import AssetLink from 'components/AssetLink';
 
 import LoadingIndicator from 'components/LoadingIndicator';
 import ContainerBase from 'components/ContainerBase';
@@ -65,7 +68,6 @@ export class Properties extends React.PureComponent {
   }
 
   render() {
-    console.log(this.props.properties.properties);
     if (this.props.properties.loading) {
       return (
         <Container>
@@ -98,14 +100,16 @@ export class Properties extends React.PureComponent {
                 />
               </StyledTD>
               <StyledTDTextLeft>
-                <p>#{property.propertyid}</p>
+                <AssetLink asset={property.propertyid} state={this.props.state}>
+                  #{property.propertyid}
+                </AssetLink>
               </StyledTDTextLeft>
               <StyledTDTextLeft>
-                <p>
+                <AssetLink asset={property.propertyid} state={this.props.state}>
                   {`${property.name.substring(0, 20)}${
                     property.name.length > 20 ? '...' : ''
                   }`}
-                </p>
+                </AssetLink>
               </StyledTDTextLeft>
             </tr>
           ))}
@@ -155,10 +159,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 const withReducer = injectReducer({
   key: 'properties',
@@ -170,8 +171,4 @@ const withSaga = injectSaga({
   saga: propertiesSaga,
 });
 
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(Properties);
+export default compose(withReducer, withSaga, withConnect)(Properties);

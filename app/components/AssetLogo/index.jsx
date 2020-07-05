@@ -20,37 +20,52 @@ const WarningTooltip = styled(UncontrolledTooltip).attrs({
   innerClassName: 'bg-danger',
 })`
   &.bs-tooltip-top .arrow::before {
-        border-top-color: #dc3545 !important;
-    }
+    border-top-color: #dc3545 !important;
+  }
   &.bs-tooltip-bottom .arrow::before {
-    	border-bottom-color: #dc3545 !important;
+    border-bottom-color: #dc3545 !important;
   }
   &.bs-tooltip-right .arrow::before {
-    	border-right-color: #dc3545 !important;
+    border-right-color: #dc3545 !important;
   }
   &.bs-tooltip-left .arrow::before {
-    	border-left-color: #dc3545 !important;
+    border-left-color: #dc3545 !important;
   }
 `;
 
-function AssetLogo({ asset, prop, className, style}) {
+function AssetLogo({ asset, prop, className, style }) {
   const id = `id${Date.now()}${prop ? prop : ''}`;
   const logo = getLogo(prop, asset);
 
-  const hasWarning = some(asset.flags, (value, key) => key !== 'registered' && value);
+  const hasWarning = some(
+    asset.flags,
+    (value, key) => key !== 'registered' && value,
+  );
 
   const Tooltip = hasWarning ? WarningTooltip : UncontrolledTooltip;
-  const assetName = [4, -22, 25, 26, 28, 65534].includes(asset.type_int) ? asset.type : `#${prop}: ${asset.name}`;
-  const tooltipText = hasWarning ? asset.invalidreason || 'Warning!' : assetName;
+  const assetName = [4, -22, 25, 26, 28, 65534].includes(asset.type_int)
+    ? asset.type
+    : `#${prop}: ${asset.name}`;
+  const tooltipText = hasWarning
+    ? asset.invalidreason || 'Warning!'
+    : assetName;
 
-  const CurrentTooltip =<Tooltip placement="top-end" target={id}>
-    {tooltipText}
-  </Tooltip>;
+  const CurrentTooltip = (
+    <Tooltip placement="top-end" target={id}>
+      {tooltipText}
+    </Tooltip>
+  );
 
   return (
     <span>
-      <IMGLogo src={logo} alt={asset.name} id={id} className={className} style={style}/>
-      { CurrentTooltip }
+      <IMGLogo
+        src={logo}
+        alt={asset.name}
+        id={id}
+        className={className}
+        style={style}
+      />
+      {CurrentTooltip}
     </span>
   );
 }
