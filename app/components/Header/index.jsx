@@ -15,6 +15,11 @@ import {
   ECOSYSTEM_PROD_NAME,
   ECOSYSTEM_TEST_NAME,
 } from 'containers/App/constants';
+import {
+  ALL_PROPERTIES,
+  NATIVE_PROPERTIES,
+  ORACLE_PROPERTIES,
+} from 'containers/Properties/constants';
 
 import {
   Alert,
@@ -89,17 +94,18 @@ class Header extends React.PureComponent {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      <NavLink
-                        href={`/properties/${ECOSYSTEM_PROD_NAME.toLowerCase()}`}
-                      >
-                        Production
+                      <NavLink href={`/properties/${ALL_PROPERTIES}`}>
+                        Properties
                       </NavLink>
                     </DropdownItem>
                     <DropdownItem>
-                      <NavLink
-                        href={`/properties/${ECOSYSTEM_TEST_NAME.toLowerCase()}`}
-                      >
-                        Test
+                      <NavLink href={`/properties/${ORACLE_PROPERTIES}`}>
+                        Oracle Contracts
+                      </NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink href={`/properties/${NATIVE_PROPERTIES}`}>
+                        Native Contracts
                       </NavLink>
                     </DropdownItem>
                   </DropdownMenu>
@@ -150,9 +156,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const withConnect = connect(
-  null,
-  mapDispatchToProps,
-);
+const withConnect = connect(null, mapDispatchToProps);
 
 export default compose(withConnect)(Header);

@@ -22,9 +22,10 @@ import { LOAD_PROPERTIES, LOAD_PROPERTIES_SUCCESS } from './constants';
  *
  * @return {object} An action object with a type of LOAD_SEARCH
  */
-export function loadProperties() {
+export function loadProperties(payload) {
   return {
     type: LOAD_PROPERTIES,
+    payload,
   };
 }
 

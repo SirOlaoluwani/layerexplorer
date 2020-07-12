@@ -68,12 +68,12 @@ class App extends React.Component {
     return (
       <AppWrapper>
         <Helmet
-          titleTemplate="%s - Omni Explorer"
-          defaultTitle="Omni Explorer - The block explorer for Omni Token, Tether, USDT, MaidSafe and Omni Layer Tokens / Cryptocurrencies"
+          titleTemplate="%s - LayerExplorer"
+          defaultTitle="LayerExplorer - The block explorer for Omni Token, Tether, USDT, MaidSafe and Omni Layer Tokens / Cryptocurrencies"
         >
           <meta
             name="description"
-            content="The block explorer for Omni Token, Tether, USDT, MaidSafe and Omni Layer Tokens / Cryptocurrencies"
+            content="The block explorer for Layer Token, Tether, USDT, MaidSafe and Omni Layer Tokens / Cryptocurrencies"
           />
           <link rel="canonical" href="https://omniexplorer.info" />
           <meta name="referrer" content="always" />
@@ -136,12 +136,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const withConnect = connect(
-  null,
-  mapDispatchToProps,
-);
+const withConnect = connect(null, mapDispatchToProps);
 
-export default compose(
-  withConnect,
-  ...Sagas,
-)(App);
+export default compose(withConnect, ...Sagas)(App);

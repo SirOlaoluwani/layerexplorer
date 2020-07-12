@@ -20,14 +20,18 @@ import LoadingIndicator from 'components/LoadingIndicator';
 import TransactionInfo from 'components/TransactionInfo';
 import ContainerBase from 'components/ContainerBase';
 import { startFetch } from 'components/Token/actions';
-import { makeSelectProperties, makeSelectProperty } from 'components/Token/selectors';
+import {
+  makeSelectProperties,
+  makeSelectProperty,
+} from 'components/Token/selectors';
 
 import makeSelectTransactionDetail from './selectors';
 import sagaTxDetail from './saga';
 import { loadTransaction } from './actions';
 import reducer from './reducer';
 
-export class TransactionDetail extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class TransactionDetail extends React.Component {
+  // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
 
@@ -36,7 +40,11 @@ export class TransactionDetail extends React.Component { // eslint-disable-line 
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!this.props.txdetail.loading && !this.props.tokens.isFetching && !this.props.tokens.lastFetched) {
+    if (
+      !this.props.txdetail.loading &&
+      !this.props.tokens.isFetching &&
+      !this.props.tokens.lastFetched
+    ) {
       // At this point, we're in the "commit" phase, so it's safe to load the new data.
       this.props.getProperty(this.props.txdetail.transaction.propertyid);
     }
@@ -53,13 +61,18 @@ export class TransactionDetail extends React.Component { // eslint-disable-line 
       return loading;
     }
 
-    const property = getPropByTx(this.props.txdetail.transaction, this.props.properties);
+    const property = getPropByTx(
+      this.props.txdetail.transaction,
+      this.props.properties,
+    );
     if (!property) return loading;
 
     if (this.props.txdetail.transaction.notFound) {
       return (
         <ContainerBase fluid>
-          <h1> Transaction
+          <h1>
+            {' '}
+            Transaction
             <small> {this.txid.slice(0, 24)}... </small>
             not found
           </h1>
@@ -76,7 +89,10 @@ export class TransactionDetail extends React.Component { // eslint-disable-line 
     return (
       <ContainerBase fluid>
         {warningMessage}
-        <TransactionInfo {...this.props.txdetail.transaction} asset={property}/>
+        <TransactionInfo
+          {...this.props.txdetail.transaction}
+          asset={property}
+        />
       </ContainerBase>
     );
   }
@@ -115,8 +131,4 @@ const withSaga = injectSaga({
   saga: sagaTxDetail,
 });
 
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(TransactionDetail);
+export default compose(withReducer, withSaga, withConnect)(TransactionDetail);

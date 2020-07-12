@@ -25,14 +25,15 @@ import { loadAddress } from './actions';
 import sagaAddress from './saga';
 
 const Layout = styled(Container)`
-      background-color: white;
-      padding: 0;
-    `;
+  background-color: white;
+  padding: 0;
+`;
 
-export class AddressDetail extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class AddressDetail extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    
+
     this.address = props.match.params.address;
   }
 
@@ -76,7 +77,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadAddress: (addr) => dispatch(loadAddress(addr)),
+    loadAddress: addr => dispatch(loadAddress(addr)),
     dispatch,
   };
 }

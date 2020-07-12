@@ -8,6 +8,7 @@ import identity from 'lodash/identity';
  * @returns {string}
  */
 export default (params, addEmpties = false) => {
+  console.log('params', params, 'addEmpties', addEmpties);
   const encodeURIParam = (key, value) =>
     `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
   // filters empty params if apply

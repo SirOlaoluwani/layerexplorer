@@ -38,7 +38,7 @@ export class AssetDetail extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-
+    console.log('asset did mount', this.props);
     this.propertyId = this.props.match.params.propertyid.toString();
     this.props.getProperty(this.props.match.params.propertyid.toString());
   }
@@ -78,7 +78,7 @@ export class AssetDetail extends React.PureComponent {
                       asset={asset}
                       prop={asset.propertyid}
                       className="img-thumbnail"
-                      style={{width: '4rem', height: '4rem'}}
+                      style={{ width: '4rem', height: '4rem' }}
                     />
                   </th>
                   <th>
@@ -129,9 +129,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default compose(withConnect)(AssetDetail);

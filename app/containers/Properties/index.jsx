@@ -35,6 +35,7 @@ import {
 
 import messages from './messages';
 import propertiesSaga from './saga';
+import { loadSearch } from 'containers/Search/actions';
 import { loadProperties } from './actions';
 import propertiesReducer from './reducer';
 
@@ -57,14 +58,8 @@ export class Properties extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-
-    this.query =
-      props.match.params.query.toString() === ECOSYSTEM_PROD_NAME.toLowerCase()
-        ? ECOSYSTEM_PROD
-        : ECOSYSTEM_TEST;
-    this.ecosystem =
-      this.query === ECOSYSTEM_PROD ? ECOSYSTEM_PROD_NAME : ECOSYSTEM_TEST_NAME;
-    this.props.loadProperties();
+    this.props.loadProperties(props.match.params.query.toString());
+    // this.props.loadSearch(this.query);
   }
 
   render() {
@@ -143,6 +138,7 @@ Properties.propTypes = {
   dispatch: PropTypes.func.isRequired,
   changeRoute: PropTypes.func.isRequired,
   loadProperties: PropTypes.func,
+  loadSearch: PropTypes.func,
   properties: PropTypes.any,
   match: PropTypes.any,
 };
@@ -154,8 +150,9 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    loadProperties: () => dispatch(loadProperties()),
+    loadProperties: query => dispatch(loadProperties(query)),
     changeRoute: url => dispatch(routeActions.push(url)),
+    loadSearch: query => dispatch(loadSearch(query)),
   };
 }
 

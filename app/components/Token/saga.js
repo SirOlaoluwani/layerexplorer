@@ -1,9 +1,17 @@
 /* eslint-disable no-console */
 import { delay } from 'redux-saga';
-import { all, call, fork, put, select, take, takeEvery } from 'redux-saga/effects';
+import {
+  all,
+  call,
+  fork,
+  put,
+  select,
+  take,
+  takeEvery,
+} from 'redux-saga/effects';
 import request from 'utils/request';
 
-import { API_URL_BASE } from 'containers/App/constants';
+import { LAYER_EXP_API_URL_BASE } from 'containers/App/constants';
 import { LOAD_PROPERTY, LOAD_PROPERTY_DEEP } from './constants';
 import { updateFetch } from './actions';
 import { getTokens } from './selectors';
@@ -62,7 +70,7 @@ function* fetchPropertyDeep(action) {
 }
 
 function* fetchProperty(propertyId) {
-  const requestURL = `${API_URL_BASE}/property/${propertyId}`;
+  const requestURL = `${LAYER_EXP_API_URL_BASE}/properties/getProperty/${propertyId}`;
   const property = yield call(request, requestURL);
   yield put(updateFetch(property));
 

@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/isEmpty';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router';
@@ -15,10 +16,10 @@ import moment from 'moment/src/moment';
 
 import SanitizedFormattedNumber from 'components/SanitizedFormattedNumber';
 import { FormattedUnixDateTime } from 'components/FormattedDateTime';
-import { API_URL_BASE } from 'containers/App/constants';
+import { LAYER_EXP_API_URL_BASE } from 'containers/App/constants';
 
 function AssetInfo(asset) {
-  const rawAssetURL = `${API_URL_BASE}/property/${asset.propertyid}`;
+  const rawAssetURL = `${LAYER_EXP_API_URL_BASE}/properties/getProperty/${asset.propertyid}`;
 
   let tokenName;
   let propertyID;
@@ -52,8 +53,8 @@ function AssetInfo(asset) {
     );
   }
 
-  if(asset.type_int === 65534){
-    propertyID= (
+  if (asset.type_int === 65534) {
+    propertyID = (
       <tr>
         <td className="field">Feature Activation</td>
         <td>
@@ -66,7 +67,7 @@ function AssetInfo(asset) {
   const Strike = styled.span`
     text-decoration: line-through;
   `;
-  if (asset.flags.duplicate || asset.flags.scam) {
+  if (!isEmpty(asset.flags) && (asset.flags.duplicate || asset.flags.scam)) {
     asseturl = (
       <td>
         <Strike>{asset.url}</Strike> See Warning - Be Careful
@@ -85,14 +86,14 @@ function AssetInfo(asset) {
   }
 
   let registeredMessage;
-  if (asset.flags.registered) {
+  if (!isEmpty(asset.flags) && asset.flags.registered) {
     registeredMessage = (
       <td dangerouslySetInnerHTML={{ __html: asset.rdata }} />
     );
   } else {
     registeredMessage = (
       <td>
-        This property is not registered with OmniExplorer.info. Please see{' '}
+        This property is not registered with LayerExplorer. Please see{' '}
         <a href="/promote">Promote Your Property</a> for further details.
       </td>
     );
@@ -109,7 +110,7 @@ function AssetInfo(asset) {
       </tr>
     );
   }
-  const crowdsaleClosed = (asset.deadline * 1000) <= moment.utc().valueOf();
+  const crowdsaleClosed = asset.deadline * 1000 <= moment.utc().valueOf();
   const closingLabel = crowdsaleClosed ? 'Closed' : 'Closing';
   return (
     <tbody>
@@ -127,20 +128,28 @@ function AssetInfo(asset) {
         <td className="field">Created</td>
         <td>
           <span id="ldatetime">
-            <FormattedUnixDateTime datetime={asset.blocktime} useSeconds={false} />
+            {asset.blocktime && (
+              <FormattedUnixDateTime
+                datetime={asset.blocktime}
+                useSeconds={false}
+              />
+            )}
           </span>
         </td>
       </tr>
-      {asset.type_int===51 &&
+      {asset.type_int === 51 && (
         <tr>
           <td className="field">{closingLabel}</td>
           <td>
             <span id="ldatetime">
-              <FormattedUnixDateTime datetime={asset.deadline} useSeconds={false} />
+              <FormattedUnixDateTime
+                datetime={asset.deadline}
+                useSeconds={false}
+              />
             </span>
           </td>
         </tr>
-      }
+      )}
       {assetData}
       <tr>
         <td className="field">Issuer</td>
@@ -216,9 +225,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const withConnect = connect(
-  null,
-  mapDispatchToProps,
-);
+const withConnect = connect(null, mapDispatchToProps);
 
 export default compose(withConnect)(AssetInfo);
