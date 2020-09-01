@@ -20,7 +20,7 @@ export function* getProperties({ payload }) {
   };
 
   const properties = yield call(request, requestUrl(payload), options);
-  yield put(propertiesLoaded(properties));
+  yield put(propertiesLoaded(properties.properties));
 }
 
 /**

@@ -10,7 +10,7 @@
  */
 
 export const API_URL_BASE = 'https://api.omniexplorer.info/v1';
-export const LAYER_EXP_API_URL_BASE = 'http://192.155.93.12:76/api';
+export const LAYER_EXP_API_URL_BASE = 'http://139.162.88.153:76/api';
 export const API_URL_BLOCKCHAIN_BTC_BALANCE =
   'https://blockchain.info/balance?cors=true&active=';
 export const DEFAULT_LOCALE = 'en';

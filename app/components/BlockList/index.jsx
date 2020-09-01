@@ -8,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Table, UncontrolledTooltip } from 'reactstrap';
+import isEmpty from 'lodash/isEmpty';
 
 import { FormattedMessage } from 'react-intl';
 import { routeActions } from 'redux-simple-router';
@@ -45,7 +46,7 @@ class BlockList extends React.PureComponent {
 
   getDistinctTokensFromBlockList(blocks) {
     const properties = Object.values(blocks)
-      .map(block => Object.keys(block.value.details))
+      .map(block => Object.keys(block.value.details || {}))
       .flat();
     const distincts = [...new Set(properties)];
     return distincts;
@@ -76,8 +77,10 @@ class BlockList extends React.PureComponent {
         content = (
           <div style={{ padding: '0.5rem 1rem' }} className="text-left">
             {!block.value.error &&
+              !isEmpty(block.value.details) &&
               Object.keys(block.value.details).map((prop, idx) => {
-                const txsCount = block.value.details[prop].tx_count;
+                const txsCount =
+                  block.value.details && block.value.details[prop].tx_count;
                 txsAcumulator += txsCount;
                 return (
                   <span key={`block${txsCount}${idx}`}>
@@ -108,14 +111,16 @@ class BlockList extends React.PureComponent {
       } else {
         content = (
           <div style={{ padding: '0.5rem 1rem' }} className="text-left">
-            {Object.keys(block.value.details).map((prop, idx) => (
-              <span key={`prop${prop}${idx}`}>
-                #{prop}: $<SanitizedFormattedNumber
-                  value={block.value.details[prop].value_usd_rounded}
-                />
-                <br />
-              </span>
-            ))}
+            {!isEmpty(block.value.details) &&
+              Object.keys(block.value.details).map((prop, idx) => (
+                <span key={`prop${prop}${idx}`}>
+                  #{prop}: $
+                  <SanitizedFormattedNumber
+                    value={block.value.details[prop].value_usd_rounded}
+                  />
+                  <br />
+                </span>
+              ))}
           </div>
         );
       }
@@ -123,19 +128,25 @@ class BlockList extends React.PureComponent {
     };
 
     const getOmniTxLogos = block => {
-      const logos = Object.keys(block.value.details).map((prop, idx) => {
-        const key = `id${block.block}${prop}`;
-        const asset = block.value.details[prop];
+      const logos =
+        !isEmpty(block.value.details) &&
+        Object.keys(block.value.details).map((prop, idx) => {
+          const key = `id${block.block}${prop}`;
+          const asset = block.value.details[prop];
 
-        return (
-          <AssetLink key={key} asset={prop} state={this.props.state}>
-            <AssetLogo asset={asset} prop={prop} style={{width: '2rem', height: '2rem'}}/>
-          </AssetLink>
-        );
-      });
+          return (
+            <AssetLink key={key} asset={prop} state={this.props.state}>
+              <AssetLogo
+                asset={asset}
+                prop={prop}
+                style={{ width: '2rem', height: '2rem' }}
+              />
+            </AssetLink>
+          );
+        });
       return logos;
     };
-    
+
     return (
       <StyledTable responsive striped hover>
         <thead>
@@ -263,9 +274,6 @@ const mapStateToProps = createStructuredSelector({
   // properties: state => makeSelectProperty(state),
 });
 
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default compose(withConnect)(BlockList);
