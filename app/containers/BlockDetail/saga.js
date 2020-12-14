@@ -6,7 +6,7 @@ import { blockLoaded } from 'containers/BlockDetail/actions';
 import request from 'utils/request';
 
 export function* getBlock({ block }) {
-  const requestURL = `${API_URL_BASE}/transaction/block/${block}`;
+  const requestURL = `${API_URL_BASE}/block-transactions/${block}`;
 
   const result = yield call(request, requestURL);
 

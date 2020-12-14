@@ -11,7 +11,7 @@ import { LOAD_SEARCH } from './constants';
 import { searchLoaded } from './actions';
 
 export function* getSearch({ query }) {
-  const requestURL = `${API_URL_BASE}/search`;
+  const requestURL = `${API_URL_BASE}/address/search`;
 
   const body = encoderURIParams({ query });
   const options = {

@@ -10,7 +10,7 @@ export function* getBlocks({ block }) {
   const currentBlock =
     block || (state.appendBlocks ? state.previousBlock || '' : '');
 
-  const requestURL = `${API_URL_BASE}/transaction/blocks/${currentBlock}`;
+  const requestURL = `${API_URL_BASE}/blocklist/${currentBlock}`;
 
   const blocks = yield call(request, requestURL);
   yield put(blocksLoaded(blocks));
