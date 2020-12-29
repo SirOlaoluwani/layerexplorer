@@ -9,7 +9,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const API_URL_BASE = 'http://66.228.57.16:3003/api';
+export const API_URL_BASE = 'http://192.155.93.12:3003/api';
 export const LAYER_EXP_API_URL_BASE = 'http://192.155.93.12:76/api';
 export const API_URL_BLOCKCHAIN_BTC_BALANCE =
   'https://blockchain.info/balance?cors=true&active=';
