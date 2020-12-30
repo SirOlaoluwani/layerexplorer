@@ -4,7 +4,7 @@ import encoderURIParams from 'utils/encoderURIParams';
 import isEmpty from 'lodash/isEmpty';
 
 import {
-  API_URL_BASE
+  API_URL_BASE,
 } from 'containers/App/constants';
 import { LOAD_SEARCH } from './constants';
 import { searchLoaded } from './actions';
