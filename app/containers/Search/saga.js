@@ -5,7 +5,6 @@ import isEmpty from 'lodash/isEmpty';
 
 import {
   API_URL_BASE,
-  API_URL_BLOCKCHAIN_BTC_BALANCE,
 } from 'containers/App/constants';
 import { LOAD_SEARCH } from './constants';
 import { searchLoaded } from './actions';
@@ -34,7 +33,7 @@ export function* getSearch({ query }) {
 
     // use btc balance from blockchain.info response
     const btcBalanceValue = btcBalance[address].final_balance;
-    const walletBTCBalance = wallet.balance.find(x => x.id == 0);
+    const walletBTCBalance = wallet.balance.find(x => x.id === 0);
     if (walletBTCBalance) walletBTCBalance.value = btcBalanceValue;
   }
 
