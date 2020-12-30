@@ -62,7 +62,7 @@ function* fetchPropertyDeep(action) {
 }
 
 function* fetchProperty(propertyId) {
-  const requestURL = `${API_URL_BASE}/property/${propertyId}`;
+  const requestURL = `${API_URL_BASE}/properties/getproperty/${propertyId}`;
   const property = yield call(request, requestURL);
   yield put(updateFetch(property));
 
