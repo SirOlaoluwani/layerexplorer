@@ -29,7 +29,7 @@ export function* getSearch({ query }) {
     const wallet = search.data.address;
     const address = search.query;
 
-    const urlBTCBalance = `${API_URL_BLOCKCHAIN_BTC_BALANCE}${address}`;
+    const urlBTCBalance = `${API_URL_BASE}/address/search/${address}`;
     const btcBalance = yield call(request, urlBTCBalance);
 
     // use btc balance from blockchain.info response
