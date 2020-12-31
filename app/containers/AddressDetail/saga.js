@@ -35,7 +35,7 @@ export function* getAddress({ addr }) {
   
   yield put(addressLoaded(wallet));
   yield wallet.balance.map(property =>
-  put(updateFetch(property.propertyinfo))
+    put(updateFetch(property.propertyinfo)),
   );
 }
 
