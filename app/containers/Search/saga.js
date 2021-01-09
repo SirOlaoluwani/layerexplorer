@@ -10,7 +10,7 @@ import { LOAD_SEARCH } from './constants';
 import { searchLoaded } from './actions';
 
 export function* getSearch({ query }) {
-  const requestURL = `${API_URL_BASE}/address/search`;
+  const requestURL = `${API_URL_BASE}/search`;
 
   const body = encoderURIParams({ query });
   const options = {
@@ -28,7 +28,7 @@ export function* getSearch({ query }) {
     const wallet = search.data.address;
     const address = search.query;
 
-    const urlBTCBalance = `${API_URL_BASE}/address/search/${address}`;
+    const urlBTCBalance = `${API_URL_BASE}/search/${address}`;
     const btcBalance = yield call(request, urlBTCBalance);
 
     // use btc balance from blockchain.info response
