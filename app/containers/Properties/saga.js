@@ -6,7 +6,7 @@ import { LOAD_PROPERTIES } from './constants';
 import { propertiesLoaded } from './actions';
 
 export function* getProperties() {
-  const requestURL = `${LAYER_EXP_API_URL_BASE}/properties`;
+  const requestURL = `${API_URL_BASE}/properties`;
 
   const options = {
     method: 'GET',

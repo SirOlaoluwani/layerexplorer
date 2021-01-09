@@ -18,7 +18,7 @@ import { FormattedUnixDateTime } from 'components/FormattedDateTime';
 import { API_URL_BASE } from 'containers/App/constants';
 
 function AssetInfo(asset) {
-  const rawAssetURL = `${API_URL_BASE}/property/${asset.propertyid}`;
+  const rawAssetURL = `${API_URL_BASE}/getproperty/${asset.propertyid}`;
 
   let tokenName;
   let propertyID;
