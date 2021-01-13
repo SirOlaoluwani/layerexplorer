@@ -69,11 +69,11 @@ class App extends React.Component {
       <AppWrapper>
         <Helmet
           titleTemplate="%s - Omni Explorer"
-          defaultTitle="Omni Explorer - The block explorer for Omni Token, Tether, USDT, MaidSafe and Omni Layer Tokens / Cryptocurrencies"
+          defaultTitle="Layer Explorer - The block explorer for TradeLayer"
         >
           <meta
             name="description"
-            content="The block explorer for Omni Token, Tether, USDT, MaidSafe and Omni Layer Tokens / Cryptocurrencies"
+            content="The block explorer for TradeLayer"
           />
           <link rel="canonical" href="https://omniexplorer.info" />
           <meta name="referrer" content="always" />
