@@ -141,8 +141,8 @@ class Wallet extends React.PureComponent {
                       <br />
                       <QRCode value={this.props.addr} size={256} />
                       {
-                        this.props.address.balance.checkkyc !== '' && 
-                        <h3>{`This address is: ${this.props.address.balance.checkkyc}`}</h3>
+                        this.props.address.balance[0].propertyinfo.checkkyc !== '' && 
+                        <h3>{`This address is: ${this.props.address.balance[0].propertyinfo.checkkyc}`}</h3>
                       }
                     </ModalBody>
                     <ModalFooter>
