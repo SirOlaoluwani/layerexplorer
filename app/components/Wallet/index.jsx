@@ -132,7 +132,7 @@ class Wallet extends React.PureComponent {
                   {this.props.addr}
                   {
                     this.props.address.balance[0].propertyinfo.checkkyc !== '' && 
-                    <h5>{`This address is: ${this.props.address.balance[0].propertyinfo.checkkyc}`}</h5>
+                    <h5 style={{marginLeft: 5}}>This address is: <b>{`${this.props.address.balance[0].propertyinfo.checkkyc}`}</b></h5>
                   }
                   <Modal
                     centered
