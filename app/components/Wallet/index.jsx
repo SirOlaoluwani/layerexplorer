@@ -109,6 +109,8 @@ class Wallet extends React.PureComponent {
 
     const hasFlagged = !!flaggedProps.length;
 
+    console.log('address balance: ', this.props.address.balance)
+
     return (
       <Table responsive style={{ marginBottom: '5px' }}>
         <thead>
