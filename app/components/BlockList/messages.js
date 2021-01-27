@@ -33,7 +33,7 @@ export default defineMessages({
     },
     txtooltip: {
       id: 'app.components.BlockList.columns.txtooltip',
-      defaultMessage: 'Omni Layer Transactions in the block',
+      defaultMessage: 'Trade Layer Transactions in the block',
     },
     usdtooltip: {
       id: 'app.components.BlockList.columns.usdooltip',

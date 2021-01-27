@@ -92,7 +92,7 @@ function AssetInfo(asset) {
   } else {
     registeredMessage = (
       <td>
-        This property is not registered with OmniExplorer.info. Please see{' '}
+        This property is not registered with LayerExplorer.info. Please see{' '}
         <a href="/promote">Promote Your Property</a> for further details.
       </td>
     );

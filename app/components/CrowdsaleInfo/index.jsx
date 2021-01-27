@@ -99,7 +99,7 @@ class CrowdsaleInfo extends React.PureComponent {
           >
             Buy with
             <br/>
-            Omniwallet
+            TradeLayer wallet
           </a>
         </StyledTDTextLeft>
       </tr>

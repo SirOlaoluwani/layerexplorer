@@ -1,12 +1,12 @@
 {
   "name": "layer-explorer",
   "version": "3.5.0",
-  "description": "Omni Explorer is a Block Explorer and Analytics Platform for the Omni Layer",
+  "description": "TradeLayer Explorer is a Block Explorer and Analytics Platform for the TradeLayer",
   "repository": {
     "type": "git",
-    "url": "https://github.com/omniLayer/omniexplorer.git"
+    "url": "https://github.com/patrickdugan/tradelayer_wallet_mono_repo_v1.git"
   },
-  "author": "OmniLayer Team",
+  "author": "TradeLayer Team",
   "license": "MIT",
   "engines": {
     "node": "12.10.0"

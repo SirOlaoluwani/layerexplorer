@@ -72,4 +72,4 @@ ESLint help making all developer follow the same coding format. Please also sett
 
 ## Have another question?
 
-Submit an [issue](https://github.com/OmniLayer/omniexplorer/issues)
+Submit an [issue](https://github.com/)

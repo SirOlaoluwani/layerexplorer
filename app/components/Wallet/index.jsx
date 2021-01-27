@@ -138,6 +138,10 @@ class Wallet extends React.PureComponent {
                       <h3 className="text-truncate">{this.props.addr}</h3>
                       <br />
                       <QRCode value={this.props.addr} size={256} />
+                      {
+                        this.props.address.balance.checkkyc !== '' && 
+                        <h3>{`This address is: ${this.props.address.balance.checkkyc}`}</h3>
+                      }
                     </ModalBody>
                     <ModalFooter>
                       <Button color="secondary" onClick={this.toggleModal}>

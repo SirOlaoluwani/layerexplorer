@@ -164,7 +164,7 @@ export class CrowdsaleDetail extends React.PureComponent {
       <Container fluid className="mt-3 p-1">
         <Helmet>
           <meta name="twitter:card" content="summary"></meta>
-          <meta property="twitter:title" content={`OmniLayer crowdsale`} />
+          <meta property="twitter:title" content={`TradeLayer crowdsale`} />
           <meta name="twitter:description" content={shareTitle} />
         </Helmet>
         {warningMessage}

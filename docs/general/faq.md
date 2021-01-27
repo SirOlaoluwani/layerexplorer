@@ -257,4 +257,4 @@ More information is available in the [official documents](https://github.com/sty
 
 ## Have another question?
 
-Submit an [issue](https://github.com/OmniLayer/omniexplorer/issues)
+Submit an [issue](https://github.com/)
