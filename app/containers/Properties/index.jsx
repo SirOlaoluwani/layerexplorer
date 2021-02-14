@@ -41,6 +41,10 @@ const StyledContainer = styled(ContainerBase)`
 const StyledTH = styled.th`
   border: none !important;
 `;
+const StyledTHRight = styled.th`
+  border: none !important;
+  text-align: right !important;
+`;
 
 const StyledTD = styled.td.attrs({
   className: 'align-middle',
@@ -84,7 +88,7 @@ export class Properties extends React.PureComponent {
             <StyledTH />
             <StyledTH>Property ID</StyledTH>
             <StyledTH>Name</StyledTH>
-            <StyledTH>Issuer</StyledTH>
+            <StyledTHRight>Issuer</StyledTHRight>
           </tr>
         </thead>
         <tbody>
