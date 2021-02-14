@@ -1,7 +1,7 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
 
-import { LAYER_EXP_API_URL_BASE } from 'containers/App/constants';
+import { API_URL_BASE } from 'containers/App/constants';
 import { LOAD_PROPERTIES } from './constants';
 import { propertiesLoaded } from './actions';
 
