@@ -107,6 +107,9 @@ export class Properties extends React.PureComponent {
                   }`}
                 </p>
               </StyledTDTextLeft>
+              <StyledTDTextLeft>
+                <p>#{property.issuer}</p>
+              </StyledTDTextLeft>
             </tr>
           ))}
         </tbody>
