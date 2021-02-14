@@ -65,7 +65,7 @@ export class Properties extends React.PureComponent {
   }
 
   render() {
-    console.log(this.props.properties.asset);
+    console.log('properties: ', this.props.properties);
     if (this.props.properties.loading) {
       return (
         <Container>
