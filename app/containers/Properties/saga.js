@@ -10,9 +10,6 @@ export function* getProperties() {
 
   const options = {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
   };
 
   const properties = yield call(request, requestURL, options);
