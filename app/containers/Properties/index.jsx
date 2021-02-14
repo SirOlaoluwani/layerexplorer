@@ -85,7 +85,7 @@ export class Properties extends React.PureComponent {
           </tr>
         </thead>
         <tbody>
-          {this.props.properties.properties.asset.map(property => (
+          {this.props.properties.asset.map(property => (
             <tr>
               <StyledTD style={{ width: '56px' }}>
                 <AssetLogo
