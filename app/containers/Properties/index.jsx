@@ -81,7 +81,7 @@ export class Properties extends React.PureComponent {
             <StyledTH />
             <StyledTH>Property ID</StyledTH>
             <StyledTH>Name</StyledTH>
-            {/* <StyledTH>Issuer</StyledTH> */}
+            <StyledTH>Issuer</StyledTH>
           </tr>
         </thead>
         <tbody>
