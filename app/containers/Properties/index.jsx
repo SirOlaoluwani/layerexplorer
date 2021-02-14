@@ -49,6 +49,9 @@ const StyledTD = styled.td.attrs({
 const StyledTDTextLeft = styled(StyledTD).attrs({
   className: 'text-left pt-3 text-truncate',
 })``;
+const StyledTDTextRight = styled(StyledTD).attrs({
+  className: 'text-right pt-3 text-truncate',
+})``;
 
 export class Properties extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
@@ -107,9 +110,9 @@ export class Properties extends React.PureComponent {
                   }`}
                 </p>
               </StyledTDTextLeft>
-              <StyledTDTextLeft>
-                <p>#{property.issuer}</p>
-              </StyledTDTextLeft>
+              <StyledTDTextRight>
+                <p>{property.issuer}</p>
+              </StyledTDTextRight>
             </tr>
           ))}
         </tbody>
