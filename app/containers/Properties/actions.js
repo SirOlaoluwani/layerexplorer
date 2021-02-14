@@ -38,6 +38,6 @@ export function loadProperties() {
 export function propertiesLoaded(payload) {
   return {
     type: LOAD_PROPERTIES_SUCCESS,
-    payload,
+    payload: payload,
   };
 }

@@ -65,7 +65,7 @@ export class Properties extends React.PureComponent {
   }
 
   render() {
-    console.log(this.props.properties.properties);
+    console.log(this.props.properties.properties.asset);
     if (this.props.properties.loading) {
       return (
         <Container>
@@ -85,7 +85,7 @@ export class Properties extends React.PureComponent {
           </tr>
         </thead>
         <tbody>
-          {this.props.properties.properties.map(property => (
+          {this.props.properties.properties.asset.map(property => (
             <tr>
               <StyledTD style={{ width: '56px' }}>
                 <AssetLogo
