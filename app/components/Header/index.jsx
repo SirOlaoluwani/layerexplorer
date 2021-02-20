@@ -92,18 +92,38 @@ class Header extends React.PureComponent {
                       <NavLink
                         href={`/properties/${ECOSYSTEM_PROD_NAME.toLowerCase()}`}
                       >
-                        Production
+                        LTC Production
                       </NavLink>
                     </DropdownItem>
                     <DropdownItem>
                       <NavLink
                         href={`/properties/${ECOSYSTEM_TEST_NAME.toLowerCase()}`}
                       >
-                        Test
+                        LTC Test
+                      </NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink
+                        href={`/properties/${ECOSYSTEM_PROD_NAME.toLowerCase()}`}
+                      >
+                        BTC Production
+                      </NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink
+                        href={`/properties/${ECOSYSTEM_TEST_NAME.toLowerCase()}`}
+                      >
+                        BTC Test
                       </NavLink>
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
+                <StyledNavItem>
+                  <NavLink href="/identity-registrars">Identity Registrars</NavLink>
+                </StyledNavItem>
+                <StyledNavItem>
+                  <NavLink href="/derivative-oracles">Derivative Oracles</NavLink>
+                </StyledNavItem>
               </Nav>
             </StyledCollapse>
           </div>

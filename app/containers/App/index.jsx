@@ -23,6 +23,8 @@ import AddressDetail from 'containers/AddressDetail';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Search from 'containers/Search/Loadable';
 import Properties from 'containers/Properties/Loadable';
+import IdentityRegistrars from 'containers/IdentityRegistrars/Loadable';
+// import DerivativeOracles from 'containers/DerivativeOracles/Loadable';
 import AssetDetail from 'containers/AssetDetail/Loadable';
 import CrowdsaleDetail from 'containers/CrowdsaleDetail/Loadable';
 import Promote from 'containers/Promote/Loadable';
@@ -99,6 +101,16 @@ class App extends React.Component {
               component={Properties}
               key={location.pathname}
             />
+            <Route
+              path="/identity-registrars"
+              component={IdentityRegistrars}
+              key={location.pathname}
+            />
+            {/* <Route
+              path="/derivative-oracles"
+              component={Properties}
+              key={location.pathname}
+            /> */}
             <Route
               path="/asset/:propertyid(\d+)"
               component={AssetDetail}

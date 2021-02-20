@@ -22,7 +22,7 @@ import LoadingIndicator from 'components/LoadingIndicator';
 import ContainerBase from 'components/ContainerBase';
 import ListHeader from 'components/ListHeader';
 
-import makeSelectProperty from './selectors';
+import makeSelectIdRegistrars from './selectors';
 import {
   ECOSYSTEM_PROD,
   ECOSYSTEM_TEST,
@@ -31,9 +31,9 @@ import {
 } from 'containers/App/constants';
 
 import messages from './messages';
-import propertiesSaga from './saga';
-import { loadProperties } from './actions';
-import propertiesReducer from './reducer';
+import idRegistrarsSaga from './saga';
+import { loadIdRegistrars } from './actions';
+import idRegistrarsReducer from './reducer';
 
 const StyledContainer = styled(ContainerBase)`
   margin-top: 1rem;
@@ -57,7 +57,7 @@ const StyledTDTextRight = styled(StyledTD).attrs({
   className: 'text-center pt-3 text-truncate',
 })``;
 
-export class Properties extends React.PureComponent {
+export class IdentityRegistrars extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
@@ -86,9 +86,11 @@ export class Properties extends React.PureComponent {
         <thead>
           <tr>
             <StyledTH />
-            <StyledTH>Property ID</StyledTH>
+            <StyledTH>Address</StyledTH>
             <StyledTH>Name</StyledTH>
-            <StyledTHRight>Issuer</StyledTHRight>
+            <StyledTH>Website</StyledTH>
+            <StyledTH>Block</StyledTH>
+            <StyledTH>KYC ID</StyledTH>
           </tr>
         </thead>
         <tbody>
@@ -145,22 +147,22 @@ export class Properties extends React.PureComponent {
   }
 }
 
-Properties.propTypes = {
+IdentityRegistrars.propTypes = {
   dispatch: PropTypes.func.isRequired,
   changeRoute: PropTypes.func.isRequired,
   loadProperties: PropTypes.func,
-  properties: PropTypes.any,
+  idRegistrars: PropTypes.any,
   match: PropTypes.any,
 };
 
 const mapStateToProps = createStructuredSelector({
-  properties: makeSelectProperty(),
+  idRegistrars: makeSelectIdRegistrars(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
-    loadProperties: () => dispatch(loadProperties()),
+    loadIdRegistrars: () => dispatch(loadIdRegistrars()),
     changeRoute: url => dispatch(routeActions.push(url)),
   };
 }
@@ -171,17 +173,17 @@ const withConnect = connect(
 );
 
 const withReducer = injectReducer({
-  key: 'properties',
-  reducer: propertiesReducer,
+  key: 'idRegistrars',
+  reducer: idRegistrarsReducer,
 });
 
 const withSaga = injectSaga({
-  key: 'properties',
-  saga: propertiesSaga,
+  key: 'idRegistrars',
+  saga: idRegistrarsSaga,
 });
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(Properties);
+)(IdentityRegistrars);
