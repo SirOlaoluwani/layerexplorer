@@ -19,7 +19,7 @@ function idRegistrarsReducer(state = initialState, action) {
     case LOAD_ID_REGISTRARS:
       return state.set('loading', true);
     case LOAD_ID_REGISTRARS_SUCCESS:
-      return state.set('loading', false).set('idRegistrars', payload);
+      return state.set('loading', false).set('response', payload);
     default:
       return state;
   }
