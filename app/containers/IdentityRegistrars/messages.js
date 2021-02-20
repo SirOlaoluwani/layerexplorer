@@ -7,10 +7,10 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   header: {
-    id: 'app.containers.Properties.header',
-    defaultMessage: 'Properties for ecosystem {ecosystem}',
-    one: 'Property',
-    other: 'Properties',
-    zero: 'Properties',
+    id: 'app.containers.IdentityRegistrars.header',
+    defaultMessage: 'Identity Registrars for ecosystem {ecosystem}',
+    one: 'Identity Registrar',
+    other: 'Identity Registrars',
+    zero: 'Identity Registrars',
   },
 });

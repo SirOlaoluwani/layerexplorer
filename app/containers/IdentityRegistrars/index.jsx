@@ -61,19 +61,12 @@ export class IdentityRegistrars extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-
-    this.query =
-      props.match.params.query.toString() === ECOSYSTEM_PROD_NAME.toLowerCase()
-        ? ECOSYSTEM_PROD
-        : ECOSYSTEM_TEST;
-    this.ecosystem =
-      this.query === ECOSYSTEM_PROD ? ECOSYSTEM_PROD_NAME : ECOSYSTEM_TEST_NAME;
-    this.props.loadProperties();
+    this.props.loadIdRegistrars();
   }
 
   render() {
-    console.log('properties: ', this.props.properties);
-    if (this.props.properties.loading) {
+    console.log('idRegistrars: ', this.props.idRegistrars);
+    if (this.props.idRegistrars.loading) {
       return (
         <Container>
           <LoadingIndicator />
@@ -94,31 +87,26 @@ export class IdentityRegistrars extends React.PureComponent {
           </tr>
         </thead>
         <tbody>
-          {this.props.properties.properties.data.asset.map(property => (
+          {this.props.idRegistrars.response.data.map(idRegistrar => (
             <tr>
               <StyledTD style={{ width: '56px' }}>
-                <AssetLogo
-                  asset={property}
-                  prop={property.propertyid}
-                  style={{
-                    width: '4rem',
-                    height: '4rem',
-                  }}
-                />
+                
               </StyledTD>
               <StyledTDTextLeft>
-                <p>#{property.propertyid}</p>
+                <p>{idRegistrar.address}</p>
               </StyledTDTextLeft>
               <StyledTDTextLeft>
-                <p>
-                  {`${property.name.substring(0, 20)}${
-                    property.name.length > 20 ? '...' : ''
-                  }`}
-                </p>
+              <p>{idRegistrar.name}</p>
               </StyledTDTextLeft>
-              <StyledTDTextRight>
-                <p>{property.issuer}</p>
-              </StyledTDTextRight>
+              <StyledTDTextLeft>
+              <p>{idRegistrar.website}</p>
+              </StyledTDTextLeft>
+              <StyledTDTextLeft>
+              <p>{idRegistrar.block}</p>
+              </StyledTDTextLeft>
+              <StyledTDTextLeft>
+              <p>{idRegistrar['kyc id']}</p>
+              </StyledTDTextLeft>
             </tr>
           ))}
         </tbody>
@@ -130,11 +118,11 @@ export class IdentityRegistrars extends React.PureComponent {
         <Row>
           <Col sm>
             <ListHeader
-              total={this.props.properties.length}
-              totalLabel="Property"
+              total={this.props.idRegistrars.length}
+              totalLabel="Identity Registrars"
               message={messages.header}
               values={{
-                ecosystem: this.ecosystem,
+                ecosystem: '',
               }}
             />
           </Col>
@@ -150,7 +138,7 @@ export class IdentityRegistrars extends React.PureComponent {
 IdentityRegistrars.propTypes = {
   dispatch: PropTypes.func.isRequired,
   changeRoute: PropTypes.func.isRequired,
-  loadProperties: PropTypes.func,
+  loadIdRegistrars: PropTypes.func,
   idRegistrars: PropTypes.any,
   match: PropTypes.any,
 };

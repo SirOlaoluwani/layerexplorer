@@ -9,7 +9,7 @@ import { LOAD_ID_REGISTRARS, LOAD_ID_REGISTRARS_SUCCESS } from './constants';
 
 const initialState = fromJS({
   loading: true,
-  idRegistrars: [],
+  response: [],
 });
 
 function idRegistrarsReducer(state = initialState, action) {
