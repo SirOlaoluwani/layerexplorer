@@ -36,7 +36,7 @@ const NameLogo = () => (
       <IMG src={featureLogoPNG} alt="feature logo" className="card-img-top" />
     </div>
     <div className="d-inline-block bg-inverse text-white text-nowrap">
-      <h5>Omni Token</h5>
+      <h5>Tradelayer Token</h5>
       <span>Featured Property</span>
     </div>
   </ContainerLogo>
@@ -78,6 +78,10 @@ const StyledContainerSummary3 = styled(StyledContainerSummary)`
   background-color: #727CB6;
 `;
 
+const StyledContainerSummary4 = styled(StyledContainerSummary)`
+  background-color: #159E9C;
+`;
+
 const SummaryItem = (props) => {
   const StyledContainer = props.container;
 
@@ -112,6 +116,14 @@ class ServiceBlock extends React.PureComponent { // eslint-disable-line react/pr
       </span>
     );
 
+    const getVestingInfo = (props, type) => {
+
+      if(type === 'percentage') {
+
+        return props.vestingInfo['vested percentage']
+      }
+    }
+
     return (
       <Container className="d-md-flex">
         <div className="d-inline-block">
@@ -121,15 +133,27 @@ class ServiceBlock extends React.PureComponent { // eslint-disable-line react/pr
           <div className="d-md-inline-block d-sm-block w-100">
           <SummaryItem
             container={StyledContainerSummary1}
-            options={{ title: 'LATEST OMNI PRICE', value: omniPriceValue(this.props.status) }}
+            options={{ title: 'LATEST TRADELAYER PRICE', value: omniPriceValue(this.props.status) }}
           />
           <SummaryItem
             container={StyledContainerSummary2}
             options={{ title: 'TOTAL TRANSACTIONS (24 hrs)', value: this.props.status.txcount_24hr }}
           />
           <SummaryItem
+            container={StyledContainerSummary1}
+            options={{ title: 'TOTAL LTC VOLUME (24 hrs)', value: this.props.status.txcount_24hr }}
+          />
+          <SummaryItem
             container={StyledContainerSummary3}
-            options={{ title: 'OMNI PROPERTIES', value: propertiesCountValue(this.props.status) }}
+            options={{ title: 'TOTAL TOKEN VOLUME (24 hrs)', value: this.props.status.txcount_24hr }}
+          />
+          <SummaryItem
+            container={StyledContainerSummary2}
+            options={{ title: 'TRADELAYER PROPERTIES', value: propertiesCountValue(this.props.status) }}
+          />
+          <SummaryItem
+            container={StyledContainerSummary1}
+            options={{ title: 'PERCENTAGE VESTING INFO', value: getVestingInfo(this.props.status, 'percentage') }}
           />
         </div>
       </Container>

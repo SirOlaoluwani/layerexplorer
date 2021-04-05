@@ -31,7 +31,7 @@ function Footer() {
           {...messages.authorMessage}
           values={{
             love: <HeartIcon color="red" size={24} />,
-            author: <A href="http://www.TradeLayer.org/">The Omni Foundation</A>,
+            author: <A href="http://www.tradelayer.org/"> The Tradelayer Team</A>,
           }}
         />
       </section>

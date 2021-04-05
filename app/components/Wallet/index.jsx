@@ -111,6 +111,20 @@ class Wallet extends React.PureComponent {
 
     console.log('address balance: ', this.props.address.balance)
 
+    const getUnvestedText = () => {
+      if(this.props.address.balance[0].propertyinfo.unvested !== '') {
+
+        const { unvested } = this.props.address.balance[0].propertyinfo;
+
+        const unvestedText = `Unvested: ${unvested}`;
+
+        return unvestedText;
+      }
+      return '';
+    }
+
+                                        
+
     return (
       <Table responsive style={{ marginBottom: '5px' }}>
         <thead>
@@ -133,6 +147,10 @@ class Wallet extends React.PureComponent {
                   {
                     this.props.address.balance[0].propertyinfo.checkkyc !== '' && 
                     <h5 style={{marginLeft: 5}}>This address is: <b>{`${this.props.address.balance[0].propertyinfo.checkkyc}`}</b></h5>
+                  }
+                  {
+                    getUnvestedText() !== '' && 
+                    <h5 style={{marginLeft: 5}}><b>{getUnvestedText()}</b></h5>
                   }
                   <Modal
                     centered
