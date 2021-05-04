@@ -1,0 +1,201 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 767px) {
+    
+    // @import '../views/auth/mobile';
+
+    .sidebar-drawer-cover {
+
+        .drawer-bg-cover {
+            background-color: #171d2b;
+            height: 100% !important;
+
+            .drawer-toolbar-cover {
+                display: flex;
+                justify-content: center;
+                align-items: center !important;
+                // background-color: #171d2b;
+                border-bottom: 1px solid rgba(205, 205, 205, 0.3);
+    
+                .app-logo-cover-flex {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+        
+                    .app-logo-clover-item {
+                        width: 60%;
+        
+                        .app-logo-img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .sidebar-list-container {
+
+            .sidebar-list-cover-flex {
+
+                .sidebar-list-cover-item {
+
+                    .listitem-cover {
+                        
+                        .list-item-avatar-cover {
+
+                            .avatar-cover {
+                                background-color: #ffffff !important;
+
+                                .avatar-icon {
+                                    color: #061E5B;
+                                }
+                            }
+                        }
+                        .listitem-icon-cover {
+
+                            .listitem-icon {
+                                color: #ffffff;
+                            }
+                        }
+                        .list-item-text-cover {
+                            color: #ffffff;
+
+                            .MuiListItemText-secondary {
+                                color: rgba(255, 255, 255, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dialog-cover {
+
+        .MuiDialog-paperWidthSm {
+            width: 500px;
+        }
+
+        .dialog-title-cover {
+            background-color: #171d2b;
+            padding: 0px;
+
+            .dialog-title-cover-flex {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .dialog-title-text-cover {
+                    width: 90%;
+
+                    .dialog-title-text {
+                        font-size: 1.1rem;
+                        text-align: center;
+                        color: #ffffff;
+                    }
+                }
+                .dialog-close-btn-cover {
+                    width: 10%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .icon-btn-cover {
+                        width: 30px;
+                        height: 30px;
+                        background-color: rgba(255, 255, 255, 0.9);
+                        box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8);
+                        
+                        .close-btn-icon {
+                            color: #061E5B;
+                        }
+                    }
+                }
+            }
+        }
+        .dialog-content-cover {
+            width: 100%;
+
+            .dialog-form-cover-flex {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                .dialog-form-cover-item {
+                    width: 90%;
+
+                    .dialog-form {
+                        width: 100%;
+
+                        .form-input-cover-flex {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+
+                            .form-input-cover-item {
+                                width: 100%;
+
+                                .form-input {
+                                    width: 100%;
+
+                                    .MuiInputBase-input {
+                                        height: 100px !important;
+                                    }
+                                }
+                            }
+                        }
+                        .form-btn-cover-flex {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                            padding-top: 20px;
+                            padding-bottom: 20px;
+
+                            .form-btn-cover-item {
+                                width: 100%;
+
+                                .form-btn {
+                                    width: 100%;
+                                    text-transform: capitalize;
+                                    border: none !important;
+                                    box-shadow: none !important;
+                                    padding: 10px;
+                                }
+                                .form-btn-enabled {
+                                    background-color: #171d2b !important;
+                                }
+                                .form-btn-disabled {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .loader-component-container {
+        width: 100%;
+        height: 100vh;
+
+        .loader-component-cover-flex {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .loader-component-cover-item {
+                width: 30%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    @import '../views/dashboard/mobile';
+}

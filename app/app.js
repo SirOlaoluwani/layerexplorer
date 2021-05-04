@@ -19,6 +19,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import createHistory from 'history/createBrowserHistory';
 import { syncHistory } from 'redux-simple-router';
 import 'sanitize.css/sanitize.css';
+import './assets/sass/app.scss';
 
 // Import root app
 import App from 'containers/App/index';

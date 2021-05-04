@@ -33,10 +33,14 @@ import {
 } from './selectors';
 import { disableLoading, loadBlocks } from './actions';
 import messages from './messages';
+import NewBlockList from 'components/NewBlockList';
 
 const StyledContainer = styled(ContainerBase)`
   overflow: auto;
+  padding: 0px !important;
+  padding-top: 40px !important;
   padding-bottom: 0;
+  background-color: #EDEDED;
 `;
 
 const A = styled.a`
@@ -68,9 +72,11 @@ export class Blocks extends React.Component {
       const { blocks } = this.props.blocks;
       const list =
         isEmpty(blocks) || this.block > blocks[0].block + 9 ? (
-          <NoOmniBlocks />
+          // <NoOmniBlocks />
+          <NewBlockList blocks={blocks} />
         ) : (
-          <BlockList blocks={blocks} />
+          // <BlockList blocks={blocks} />
+          <NewBlockList blocks={blocks} />
         );
 
       content = <div>{list}</div>;
@@ -132,9 +138,9 @@ export class Blocks extends React.Component {
 
     return (
       <StyledContainer fluid>
-        <ListHeader message={messages.header}>
+        {/* <ListHeader message={messages.header}>
           <JumpToBlock onValidate={(value) => (FIRST_BLOCK < value && value <= this.props.latest)}/>
-        </ListHeader>
+        </ListHeader> */}
         {content}
         {this.props.withPagination && pagination}
         {footer}

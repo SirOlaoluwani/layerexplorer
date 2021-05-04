@@ -9,7 +9,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.components.NoOmniBlocks.header',
-    defaultMessage: 'No Omni blocks found',
+    defaultMessage: 'No Tradelayer blocks found',
   },
   main: {
     id: 'app.components.NoOmniBlocks.main',

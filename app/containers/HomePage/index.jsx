@@ -23,6 +23,7 @@ import HeaderMessage from 'components/HeaderMessage';
 import TransactionHistory from 'components/TransactionHistory';
 import Blocks from 'containers/Blocks';
 import FooterLinks from 'components/FooterLinks';
+import Card from '@material-ui/core/Card';
 
 const Layout = styled(Container)`
   background-color: #f5f5f5;
@@ -37,19 +38,25 @@ class HomePage extends React.PureComponent {
       <Layout fluid>
         <Row noGutters>
           <Col sm>
-            <HeaderMessage />
+            {/* <HeaderMessage /> */}
           </Col>
         </Row>
-        <Row>
-          <Col sm="12" lg="5" className="text-center-down-md">
+        <Row noGutters>
+          <Col sm="12" lg="5" className="text-center-down-md" style={{backgroundColor: '#EDEDED'}}>
             <ServiceBlock />
           </Col>
-          <Col sm="12" lg="7" className="">
-            <TransactionHistory />
+          <Col sm="12" lg="7" className="" style={{backgroundColor: '#EDEDED'}}>
+            <div className="transaction-card-cover-flex">
+              <div className="transaction-card-cover-item">
+                <Card elevation={2} className="card-cover">
+                  <TransactionHistory />
+                </Card>
+              </div>
+            </div>
           </Col>
         </Row>
-        <Row>
-          <Col sm>
+        <Row noGutters>
+          <Col sm style={{backgroundColor: '#EDEDED'}}>
             <Blocks footer={footer} />
           </Col>
         </Row>

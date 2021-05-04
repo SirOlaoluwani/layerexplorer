@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router';
 import styled from 'styled-components';
 import SearchBox from 'components/SearchBox';
+import AppBar from '@material-ui/core/AppBar';
 import {
   ECOSYSTEM_PROD_NAME,
   ECOSYSTEM_TEST_NAME,
@@ -35,6 +36,10 @@ import { CONFIG } from '../../config';
 const IMG = styled.img`
   padding-bottom: 3px;
   padding-right: 9px;
+`;
+
+const StyledNavbar = styled(Navbar)`
+  background-color: #4C9FFB;
 `;
 
 const StyledNavItem = styled(NavItem)`
@@ -63,21 +68,25 @@ class Header extends React.PureComponent {
 
   render() {
     return (
-      <div>
-        <Navbar color="faded" light expand="sm" className="d-block">
+      <div className="header-cover">
+        <StyledNavbar color="faded" light expand="sm" className="styled-navbar-cover d-block">
           <div className="d-flex">
-            <NavbarBrand href="/">
-              <IMG src="/favicon.png" alt={CONFIG.NAME} />
+            <NavbarBrand href="/" className="header-navbrand-cover">
+              {/* <IMG src="/favicon.png" alt={CONFIG.NAME} /> */}
               {CONFIG.NAME}
             </NavbarBrand>
-            <div className="ml-auto w-50 d-flex">
+            <div className="ml-auto w-100 d-flex">
               <div className="w-100 ml-auto d-none-only-sm-down">
-                <SearchBox />
+                <div className="searchbox-form-cover-flex">
+                  <div className="searchbox-form-cover-item">
+                    <SearchBox />
+                  </div>
+                </div>
               </div>
               <NavbarToggler onClick={this.toggle} />
             </div>
           </div>
-          <div className="d-flex">
+          {/* <div className="d-flex">
             <StyledCollapse isOpen={this.state.isOpen} navbar>
               <Nav navbar className="ml-auto">
                 <StyledNavItem>
@@ -126,8 +135,8 @@ class Header extends React.PureComponent {
                 </StyledNavItem>
               </Nav>
             </StyledCollapse>
-          </div>
-        </Navbar>
+          </div> */}
+        </StyledNavbar>
         <div className="w-100 ml-auto d-block-only-sm-down">
           <SearchBox />
         </div>

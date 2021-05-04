@@ -1,0 +1,13 @@
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1839px) {
+
+    // @import '../views/auth/lg-desktop';
+
+    .menu-cover {
+        // border: 1px solid yellow;
+    }
+
+    @import '../views/dashboard/lg-desktop';
+}

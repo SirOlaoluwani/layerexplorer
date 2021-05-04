@@ -27,6 +27,7 @@ const Wrapper = styled.div.attrs({
 })`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 14px;
+  background-color: yellow;
 `;
 
 class JumpToBlock extends React.PureComponent {

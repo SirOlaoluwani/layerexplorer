@@ -53,12 +53,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 Moment.globalLocale = 'en-gb';
 
 const AppWrapper = styled.div`
-  max-width: calc(1170px + 16px * 2);
-  margin: 0 auto;
-  display: flex;
-  min-height: 100%;
-  padding: 0 16px;
-  flex-direction: column;
+  
 `;
 
 class App extends React.Component {
@@ -68,7 +63,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <AppWrapper>
+      <AppWrapper className="app-wrapper-container">
         <Helmet
           titleTemplate="%s - Omni Explorer"
           defaultTitle="Layer Explorer - The block explorer for TradeLayer"

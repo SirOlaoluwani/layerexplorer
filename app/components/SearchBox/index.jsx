@@ -24,8 +24,9 @@ const Wrapper = styled.div.attrs({
 })`
   & div.input-group > input.form-control.searchbox-input {
     outline: none;
-    border-radius: 19px;
+    border-radius: 4px;
     max-width: 100%;
+    padding: 5px;
     padding-right: 38px;
   }
   
