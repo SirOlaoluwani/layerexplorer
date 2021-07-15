@@ -12,6 +12,8 @@ import request from 'utils/request';
 export function* getAddress({ addr }) {
   const requestURL = `${API_URL_BASE}/address/addr`;
 
+  console.log('addr:', addr)
+
   const body = encoderURIParams({ addr });
   const options = {
     method: 'POST',

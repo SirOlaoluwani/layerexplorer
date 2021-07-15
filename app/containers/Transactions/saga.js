@@ -8,7 +8,7 @@ import { makeSelectTransactions } from './selectors';
 
 export function* getUnconfirmed({ addr }) {
   const requestURL = addr
-    ? `${API_URL_BASE}/transaction/unconfirmed/${addr}`
+    ? `${API_URL_BASE}/address-transactions/unconfirmed/${addr}`
     : `${API_URL_BASE}/transaction/unconfirmed`;
 
   const transactions = yield call(request, requestURL);
@@ -21,7 +21,7 @@ export function* getTransactions({ addr }) {
   const { txType } = state;
 
   const requestURL = addr
-    ? `${API_URL_BASE}/transaction/address/${page}`
+    ? `${API_URL_BASE}/address-transactions/${page}`
     : `${API_URL_BASE}/transaction/general/${page}`;
 
   const getTransactionsOptions = {

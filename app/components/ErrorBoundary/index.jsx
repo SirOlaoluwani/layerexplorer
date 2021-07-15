@@ -9,7 +9,7 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import injectReducer from 'utils/injectReducer';
-import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
+import { fade, makeStyles, withStyles, useTheme } from '@material-ui/core/styles';
 import { Alert, Button, Modal, ModalHeader, ModalBody, ModalFooter, Jumbotron } from 'reactstrap';
 import { routeActions } from 'redux-simple-router';
 import { makeSelectStatus } from 'components/ServiceBlock/selectors';
@@ -32,21 +32,6 @@ import {
 // import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import SideNavigation from '../SideNavigation';
 import Subheader from '../Subheader';
-
-
-const useStyles = makeStyles({
-  root: {
-    height: 264,
-    flexGrow: 1,
-    maxWidth: 400,
-  },
-  // menuRoot: {
-  //   display: 'flex',
-  // },
-  // menuPaper: {
-  //   marginRight: theme.spacing(2),
-  // },
-});
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -74,7 +59,6 @@ class ErrorBoundary extends React.Component {
   }
 
   render() {
-    // const classes = useStyles();
     
     const lastParsed = this.props.status.last_parsed;
     let content = this.props.children;
@@ -82,13 +66,14 @@ class ErrorBoundary extends React.Component {
     if (this.props.st.error) {
       const { error } = this.props.st;
 
+
       content = (
         <div className="error-boundary-cover">
           <Row noGutters className="error-boundary-cover-flex">
-            <div xs={12} sm={12} md={3} className="error-boundary-cover-item">
+            <div className="error-boundary-cover-item">
               <SideNavigation />
             </div>
-            <div xs={12} sm={12} md={9} className="error-boundary-cover-item">
+            <div xs={12} sm={12} md={12} className={`error-boundary-cover-item`}>
               <Modal isOpen={!this.props.st.modal} toggle={this.props.cleanError} backdrop>
                 <ModalHeader toggle={this.props.cleanError}></ModalHeader>
                 <ModalBody>
@@ -135,10 +120,10 @@ class ErrorBoundary extends React.Component {
         content = (
           <div className="error-boundary-cover">
             <Row noGutters className="error-boundary-cover-flex">
-              <div xs={12} sm={12} md={3} className="error-boundary-cover-item">
+              <div className="error-boundary-cover-item">
                 <SideNavigation />
               </div>
-              <div xs={12} sm={12} md={9} className="error-boundary-cover-item">
+              <div xs={12} sm={12} md={12} className={`error-boundary-cover-item`}>
                 <div className="error-boundary-inner-cover-flex">
                   <div className="error-boundary-inner-cover-item">
                     <Subheader />

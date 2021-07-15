@@ -55,6 +55,7 @@ export class Search extends React.Component {
   constructor(props) {
     super(props);
     this.query = props.match.params.query.toString();
+    alert(this.query)
     this.props.loadSearch(this.query);
   }
 
@@ -121,6 +122,7 @@ export class Search extends React.Component {
     }
 
     if (this.props.search.asset.length > 0) {
+      console.log('asset', this.props.search);
       assets = (
         <Table responsive className="mt-1">
           <thead>

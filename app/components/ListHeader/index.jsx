@@ -14,7 +14,7 @@ class ListHeader extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   render() {
     const StyledRow = styled(Row)`
-      background-color: #7c8fa0;
+      background-color: transparent;
       color: white;
     `;
     const HeaderTitle = styled.span`
@@ -22,6 +22,7 @@ class ListHeader extends React.PureComponent {
       font-size: 16px;
       letter-spacing: 0.1rem;
       font-weight: 400;
+      color: #000000;
     `;
 
     // const totalLabel = `${this.props.totalLabel || 'transaction'}${this.props.total > 1 ? 's' : ''}`;

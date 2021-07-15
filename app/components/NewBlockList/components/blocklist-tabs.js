@@ -20,7 +20,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box className="box-cover" p={3} style={{padding: 0, paddingTop: '20px', backgroundColor: '#EDEDED'}}>
+        <Box className="box-cover blocklist-tabpanel-cover" p={3} style={{padding: 0, paddingTop: '20px', backgroundColor: '#EDEDED'}}>
           <div className="box-div-cover-flex">
               <div className="box-div-cover-item">
                 {children}
@@ -65,7 +65,7 @@ export default function BlocklistTabs(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="static" color="default" className="blocklist-tabs-cover">
         <Tabs
           value={value}
           onChange={handleChange}

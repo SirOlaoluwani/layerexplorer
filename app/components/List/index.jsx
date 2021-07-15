@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ListPagination from 'components/ListPagination';
+import Card from '@material-ui/core/Card';
 
 class List extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function

@@ -41,7 +41,7 @@ class HomePage extends React.PureComponent {
             {/* <HeaderMessage /> */}
           </Col>
         </Row>
-        <Row noGutters>
+        <Row noGutters className="transaction-row-cover">
           <Col sm="12" lg="5" className="text-center-down-md" style={{backgroundColor: '#EDEDED'}}>
             <ServiceBlock />
           </Col>

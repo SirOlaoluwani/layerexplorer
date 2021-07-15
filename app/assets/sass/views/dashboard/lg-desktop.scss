@@ -39,7 +39,7 @@ and (max-width : 1839px) {
                     // border: 1px solid red;
 
                     &:first-child {
-                        width: 18%;
+                        width: 17%;
 
                         .paper-cover-flex {
                             width: 100%;
@@ -86,8 +86,9 @@ and (max-width : 1839px) {
                         }
                     }
                     &:last-child {
-                        width: 82%;
+                        width: 83%;
                         background-color: #EDEDED;
+                        padding-left: 20px;
 
                         .error-boundary-inner-cover-flex {
                             width: 100%;
@@ -110,7 +111,7 @@ and (max-width : 1839px) {
                                         .subheader-navbar-cover-item {
         
                                             &:first-child {
-                                                width: 20%;
+                                                width: 30%;
         
                                                 .subheader-navbar-title-cover {
                                                     width: 100%;
@@ -128,14 +129,48 @@ and (max-width : 1839px) {
                                                         }
                                                     }
                                                 }
+                                                .subheader-breadcrumbs-cover {
+                                                    width: 100%;
+                                                    display: flex;
+                                                    justify-content: flex-start;
+
+                                                    .subheader-breadcrumbs-cover-flex {
+                                                        width: 100%;
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                        margin-left: 15px;
+
+                                                        .subheader-breadcrumbs-cover-item {
+
+                                                            &:first-child {
+                                                                width: 5%;
+                                                            }
+                                                            &:nth-child(2) {
+                                                                width: 5%; 
+                                                                color: darkgrey;
+                                                            }
+                                                            &:nth-child(3) {
+                                                                width: 30%;
+                                                                color: darkgrey;
+                                                            }
+                                                            &:nth-child(4) {
+                                                                width: 5%;
+                                                                color: darkgrey;
+                                                            }
+                                                            &:last-child {
+                                                                width: 40%;
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             }
                                             &:last-child {
-                                                width: 80%;
+                                                width: 75%;
                                                 display: flex;
                                                 justify-content: flex-end;
         
                                                 .menu-cover-flex {
-                                                    width: 70%;
+                                                    width: 80%;
                                                     display: flex;
                                                     justify-content: space-between;
         
@@ -150,6 +185,8 @@ and (max-width : 1839px) {
                                                             margin-left: 20px;
                                                             margin-top: -20px;
                                                             // border: 1px solid red;
+                                                            text-transform: capitalize;
+                                                            font-weight: 700;
                                                         }
                                                         .menu-cover {
                                                             // margin-top: 20px;
@@ -162,6 +199,8 @@ and (max-width : 1839px) {
         
                                                             .menu-btn-cover {
                                                                 // margin-top: -20px;
+                                                                text-transform: capitalize;
+                                                                font-weight: 700;
                                                             }
                                                             .menu-cover {
             
@@ -302,23 +341,255 @@ and (max-width : 1839px) {
                                         }
                                     }
                                 }
-                                .transaction-card-cover-flex {
-                                    width: 100%;
-                                    height: 100%;
-                                    display: flex;
-                                    justify-content: center;
+                                .transaction-row-cover {
 
-                                    .transaction-card-cover-item {
+                                    .transaction-card-cover-flex {
                                         width: 100%;
                                         height: 100%;
-                                        padding-left: 15px;
-                                        padding-bottom: 10px;
-
-                                        .card-cover {
+                                        display: flex;
+                                        justify-content: center;
+    
+                                        .transaction-card-cover-item {
                                             width: 100%;
                                             height: 100%;
-                                            border-radius: 5px;
-                                            padding: 5px;
+                                            padding-left: 15px;
+                                            padding-bottom: 10px;
+    
+                                            .card-cover {
+                                                width: 100%;
+                                                height: 100%;
+                                                border-radius: 5px;
+                                                padding: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .blocklist-tabs-cover {
+
+                                }
+                                .blocklist-tabpanel-cover {
+
+                                    .blocklist-table-cover-flex {
+
+                                        .blocklist-table-cover-item {
+
+                                            .table-container-cover {
+
+                                                .table-cover {
+
+                                                    .table-head-cover {
+
+                                                        .table-row-cover {
+
+                                                            .table-cell-cover {
+
+                                                            }
+                                                        }
+                                                    }
+                                                    .table-body-cover {
+
+                                                        .table-row-cover {
+
+                                                            .table-cell-cover {
+
+                                                                .cell-div-cover-flex {
+                                                                    display: flex;
+                                                                    justify-content: space-between;
+
+                                                                    .cell-div-cover-item {
+
+                                                                        &:first-child {
+                                                                            width: 25%;
+                                                                            display: flex;
+                                                                            justify-content: center;
+                                                                            align-items: center;
+
+                                                                            .name-logo-cover {
+                                                                                width: 100%;
+                                                                                display: flex;
+                                                                                justify-content: center;
+
+                                                                                .name-logo {
+                                                                                    width: 100%;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        &:last-child {
+                                                                            width: 75%;
+                                                                            height: 100%;
+                                                                            display: flex;
+                                                                            justify-content: center;
+                                                                            align-items: center;
+
+                                                                            .name-text-cover {
+                                                                                width: 100%;
+                                                                                height: 25px;
+                                                                                padding-left: 5px;
+                                                                                padding-top: 5px;
+
+                                                                                .name-title-h {
+                                                                                    font-size: 0.8rem;
+                                                                                    line-height: 10px;
+                                                                                    margin-block-end: 0.2rem;
+                                                                                }
+                                                                                .name-subtitle-p {
+                                                                                    font-size: 0.7rem;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+
+                                // token confirm styles
+                                .token-confirm-container {
+                                    width: 100%;
+
+                                    .token-confirm-container-flex {
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: center;
+
+                                        .token-confirm-container-item {
+                                            width: 98%;
+
+                                            .token-confirm-cover-flex {
+                                                width: 100%;
+                                                display: flex;
+                                                justify-content: space-between;
+
+                                                .token-confirm-cover-item {
+                                                    padding: 5px;
+
+                                                    &:first-child {
+                                                        width: 30%;
+
+                                                        .card-cover-flex {
+                                                            width: 100%;
+
+                                                            .card-cover-item {
+                                                                width: 100%;
+    
+                                                                .card-cover {
+                                                                    width: 100%;
+    
+                                                                    .card-inner-cover {
+                                                                        width: 100%;
+                                                                        padding: 15px;
+
+                                                                        .card-img-cover-flex {
+                                                                            width: 100%;
+                                                                            display: flex;
+                                                                            justify-content: space-between;
+
+                                                                            .card-img-cover-item {
+                                                                                padding-bottom: 12px;
+
+                                                                                &:first-child {
+                                                                                    width: 20%;
+                                                                                }
+                                                                                &:last-child {
+                                                                                    width: 80%;
+
+                                                                                    .card-img-text-cover {
+                                                                                        width: 100%;
+                                                                                        padding-left: 12px;
+
+                                                                                        .asset-name-text {
+                                                                                            font-size: 1.8rem !important;
+                                                                                        }
+                                                                                    }
+                                                                                    .subtitle-detail-cover {
+                                                                                        width: 100%;
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        .card-body-cover-flex {
+                                                                            width: 100%;
+                                                                            display: flex;
+                                                                            flex-direction: column;
+    
+                                                                            .card-body-cover-item {
+                                                                                padding-top: 8px;
+                                                                                padding-bottom: 8px;
+        
+                                                                                &:first-child {
+        
+                                                                                    .card-text {
+        
+                                                                                    }
+                                                                                }
+                                                                                &:nth-child(2) {
+        
+                                                                                    .card-text {
+        
+                                                                                        .card-bold-text {
+        
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                                &:last-child {
+        
+                                                                                    .card-text {
+                                                                                        
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    &:last-child {
+                                                        width: 70%;
+                                                        
+                                                        .card-cover-flex {
+                                                            width: 100%;
+
+                                                            .card-cover-item {
+                                                                width: 100%;
+
+                                                                .card-cover {
+                                                                    width: 100%;
+
+                                                                    .card-inner-cover {
+                                                                        width: 100%;
+                                                                        padding: 15px;
+
+                                                                        .card-data-cover-flex {
+                                                                            width: 100%;
+                                                                            display: flex;
+                                                                            justify-content: space-between;
+    
+                                                                            .card-data-cover-item {
+                                                                                padding-top: 12px;
+                                                                                padding-bottom: 12px;
+    
+                                                                                &:first-child {
+    
+                                                                                }
+                                                                                &:last-child {
+    
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }

@@ -22,6 +22,7 @@ import ContainerBase from 'components/ContainerBase';
 import AssetLogo from 'components/AssetLogo';
 
 import getWarningMessage from 'utils/getWarningMessage';
+import AssetToken from '../../components/AssetToken';
 
 const DetailRow = styled(Row)`
   margin-top: 2rem;
@@ -69,7 +70,32 @@ export class AssetDetail extends React.PureComponent {
       <ContainerBase fluid>
         {warningMessage}
         <DetailRow>
-          <Col sm>
+          <AssetToken 
+            tokenConfirmProps={{
+              components: {
+                AssetLogo: () => <AssetLogo
+                  asset={asset}
+                  prop={asset.propertyid}
+                  className="img-thumbnail"
+                  style={{width: '4rem', height: '4rem'}}
+                />,
+                SubtitleDetail: () => <SubtitleDetail className={subtitleclass}>
+                  <span>created by &nbsp;</span>
+                  <Link
+                    to={{
+                      pathname: `/tx/${asset.creationtxid}`,
+                      state: { state: this.props.state },
+                    }}
+                  >
+                    {asset.creationtxid}
+                  </Link>
+                </SubtitleDetail>
+              },
+              asset,
+            }} 
+            componentType={'token'}
+          />
+          {/* <Col sm>
             <Table responsive className="table-horizontal">
               <thead>
                 <tr>
@@ -101,7 +127,7 @@ export class AssetDetail extends React.PureComponent {
               </thead>
               <AssetInfo {...asset} />
             </Table>
-          </Col>
+          </Col> */}
         </DetailRow>
         <Row />
       </ContainerBase>

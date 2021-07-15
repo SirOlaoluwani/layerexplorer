@@ -34,28 +34,35 @@ import messages from './messages';
 import propertiesSaga from './saga';
 import { loadProperties } from './actions';
 import propertiesReducer from './reducer';
+import { Link } from 'react-router-dom';
 
 const StyledContainer = styled(ContainerBase)`
   margin-top: 1rem;
 `;
 const StyledTH = styled.th`
   border: none !important;
+  text-align: center;
 `;
 const StyledTHRight = styled.th`
   border: none !important;
   text-align: center !important;
 `;
 
-const StyledTD = styled.td.attrs({
-  className: 'align-middle',
-})``;
+const StyledTD = styled.td`
+  text-align: center;
+  color: #4C9FFB;
+`;
 
-const StyledTDTextLeft = styled(StyledTD).attrs({
-  className: 'text-left pt-3 text-truncate',
-})``;
-const StyledTDTextRight = styled(StyledTD).attrs({
-  className: 'text-center pt-3 text-truncate',
-})``;
+// const StyledTD = styled.td.attrs({
+//   className: 'align-middle',
+// })``;
+
+// const StyledTDTextLeft = styled(StyledTD).attrs({
+//   className: 'text-left pt-3 text-truncate',
+// })``;
+// const StyledTDTextRight = styled(StyledTD).attrs({
+//   className: 'text-center pt-3 text-truncate',
+// })``;
 
 export class Properties extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
@@ -73,6 +80,8 @@ export class Properties extends React.PureComponent {
 
   render() {
     console.log('properties: ', this.props.properties);
+    const locationProps = this.props;
+    console.log('location match', locationProps.match)
     if (this.props.properties.loading) {
       return (
         <Container>
@@ -83,15 +92,17 @@ export class Properties extends React.PureComponent {
 
     const assets = (
       <Table responsive>
-        <thead>
+        <thead style={{backgroundColor: '#CBD1D8'}}>
           <tr>
             <StyledTH />
             <StyledTH>Property ID</StyledTH>
             <StyledTH>Name</StyledTH>
-            <StyledTHRight>Issuer</StyledTHRight>
+            <StyledTH>Issuer</StyledTH>
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{
+          backgroundColor: '#FFFFFF'
+        }}>
           {this.props.properties.properties.data.asset.map(property => (
             <tr>
               <StyledTD style={{ width: '56px' }}>
@@ -104,19 +115,29 @@ export class Properties extends React.PureComponent {
                   }}
                 />
               </StyledTD>
-              <StyledTDTextLeft>
-                <p>#{property.propertyid}</p>
-              </StyledTDTextLeft>
-              <StyledTDTextLeft>
+              <StyledTD>
                 <p>
-                  {`${property.name.substring(0, 20)}${
-                    property.name.length > 20 ? '...' : ''
-                  }`}
+                  <Link to={`asset/${property.propertyid}`}>
+                    #{property.propertyid}
+                  </Link>
                 </p>
-              </StyledTDTextLeft>
-              <StyledTDTextRight>
-                <p>{property.issuer}</p>
-              </StyledTDTextRight>
+              </StyledTD>
+              <StyledTD>
+                <p>
+                  <Link to={`/asset/${property.propertyid}`}>
+                    {`${property.name.substring(0, 20)}${
+                      property.name.length > 20 ? '...' : ''
+                    }`}
+                  </Link>
+                </p>
+              </StyledTD>
+              <StyledTD>
+                <p>
+                  <Link to={`/address/${property.issuer}`}>
+                    {property.issuer}
+                  </Link>
+                </p>
+              </StyledTD>
             </tr>
           ))}
         </tbody>
@@ -128,7 +149,7 @@ export class Properties extends React.PureComponent {
         <Row>
           <Col sm>
             <ListHeader
-              total={this.props.properties.length}
+              total={this.props.properties.properties.data.asset.length}
               totalLabel="Property"
               message={messages.header}
               values={{

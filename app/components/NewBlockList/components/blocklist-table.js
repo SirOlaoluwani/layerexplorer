@@ -67,7 +67,7 @@ export default function BlocklistTable(props) {
     const getTableSN = (idx) => (parseInt(idx) + 1);
 
     const classes = useStyles();
-
+    
     return (
         <div className="blocklist-table-cover-flex">
             <div className="blocklist-table-cover-item">
@@ -86,6 +86,7 @@ export default function BlocklistTable(props) {
                                 <TableCell component="th" className="table-cell-cover">Last 7 days</TableCell>
                             </StyledTableRowHead>
                         </TableHead>
+                        
                         <TableBody className="table-body-cover">
                             {
                                 TABLE_DATA[type].map((tableData, index) => {
@@ -101,8 +102,10 @@ export default function BlocklistTable(props) {
                                                         </div>
                                                     </div>
                                                     <div className="cell-div-cover-item">
-                                                        <h2 className="name-title-h">{tableData.name.title}</h2>
-                                                        <p className="name-title-h">{tableData.name.subtitle}</p>
+                                                        <div className="name-text-cover">
+                                                            <h2 className="name-title-h">{tableData.name.title}</h2>
+                                                            <p className="name-subtitle-p">{tableData.name.subtitle}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </TableCell>

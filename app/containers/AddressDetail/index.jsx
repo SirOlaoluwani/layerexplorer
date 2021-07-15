@@ -27,6 +27,8 @@ import sagaAddress from './saga';
 const Layout = styled(Container)`
       background-color: white;
       padding: 0;
+      padding-top: 15px;
+      margin-top: 15px;
     `;
 
 export class AddressDetail extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -36,30 +38,32 @@ export class AddressDetail extends React.PureComponent { // eslint-disable-line 
     this.address = props.match.params.address;
   }
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     console.log('address detail did mount');
     this.props.loadAddress(this.address);
   }
 
   render() {
-    console.log('address detail render');
+    // console.log('address detail render', this.props.addressdetail);
     if (this.props.loading) {
       return;
     }
 
     return (
-      <Layout fluid>
+      <React.Fragment>
         <Row>
           <Col sm>
             <Wallet {...this.props.addressdetail} addr={this.address} />
           </Col>
         </Row>
-        <Row>
-          <Col sm>
-            <Transactions addr={this.address} {...this.props} />
-          </Col>
-        </Row>
-      </Layout>
+        <Layout fluid>
+          <Row>
+            <Col sm>
+              <Transactions addr={this.address} {...this.props} />
+            </Col>
+          </Row>
+        </Layout>
+      </React.Fragment>
     );
   }
 }

@@ -26,6 +26,7 @@ import {
  * @return {object} An action object with a type of LOAD_ADDRESS
  */
 export function loadAddress(addr) {
+  console.log('address detail action1', addr);
   return {
     type: LOAD_ADDRESS,
     addr,

@@ -40,6 +40,7 @@ const IMG = styled.img`
 
 const StyledNavbar = styled(Navbar)`
   background-color: #4C9FFB;
+  z-index: 9999;
 `;
 
 const StyledNavItem = styled(NavItem)`

@@ -26,6 +26,7 @@ import StatusConfirmation from 'components/StatusConfirmation';
 import AssetLink from 'components/AssetLink';
 import AssetLogo from 'components/AssetLogo';
 import getTransactionHeading from 'utils/getTransactionHeading';
+import Card from '@material-ui/core/Card';
 import './transaction.scss';
 
 const AddressWrapper = styled.div.attrs({
@@ -157,7 +158,7 @@ class Transaction extends React.PureComponent {
     const invalidid = `invalid-${txcopyid}`;
 
     return (
-      <div className="transation-result mx-auto text-center-down-md">
+      <Card className="transation-result mx-auto text-center-down-md" elevation={5}>
         <Row className="align-items-end pb-0">
           <Col sm="12" md="1">
             <AssetLink asset={this.props.propertyid} state={this.props.state}>
@@ -321,7 +322,7 @@ class Transaction extends React.PureComponent {
             </div>
           </Col>
         </Row>
-      </div>
+      </Card>
     );
   }
 }

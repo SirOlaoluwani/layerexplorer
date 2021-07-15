@@ -30,7 +30,18 @@ import { Button, ButtonGroup } from 'reactstrap';
 const StyledContainer = styled(ContainerBase)`
   overflow: auto;
   padding-bottom: 0;
+  padding-top: 15px;
 `;
+
+const StyledConfirmBtn = styled(Button)`
+  background-color: #4C9FFB !important;
+  border: none !important;
+`
+
+const StyledUnconfirmBtn = styled(Button)`
+  background-color: #94B1D0 !important;
+  border: none !important;
+`
 
 export class Transactions extends React.Component {
   // eslint-disable-line react/prefer-stateless-function
@@ -99,20 +110,20 @@ export class Transactions extends React.Component {
           count={(this.props.unconfirmed ? messages.unconfirmedHeader : null)}
           extra={!!this.props.addr &&
           <ButtonGroup>
-            <Button
+            <StyledConfirmBtn
               onClick={() => this.onRadioBtnClick(true)}
               active={!!this.state.loadConfirmed}
               disabled={!!this.state.loadConfirmed}
             >
               Confirmed
-            </Button>
-            <Button
+            </StyledConfirmBtn>
+            <StyledUnconfirmBtn
               onClick={() => this.onRadioBtnClick(false)}
               active={!this.state.loadConfirmed}
               disabled={!this.state.loadConfirmed}
             >
               Unconfirmed
-            </Button>
+            </StyledUnconfirmBtn>
           </ButtonGroup>
           }
         />
